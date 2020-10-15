@@ -1,0 +1,9 @@
+--------------------------------------------------------------------------------
+# Banco de Dados
+--------------------------------------------------------------------------------
+
+> 3 Formas
+
+- Driver nativo   -> Sem abstração, na unha
+- Query builder   -> Knex.js - knex('users').select('*').where('nome', 'marcos');
+- ORM
