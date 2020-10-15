@@ -1,0 +1,52 @@
+
+================================================================================
+#day02
+
+# Criar aplicação do zero ( sem aquele arquétipo padrão )
+# Criando arquivo "package.json" -- C:\nlw\backend\package.json
+$ yarn init -y
+
+--------------------------------------------------------------------------------
+
+# Adicionando o express - Request/Response ( Ajuda a configurar rotas da aplicação )
+$ yarn add express
+
+# Adicionando os tipos no vscode
+$ yarn add @types/express
+
+--------------------------------------------------------------------------------
+# Por padrão o Node não compreende o TypeScript.
+# Vamos instalar o TypeScript como dependência de desenv
+$ yarn add typescript -D
+
+# Criar o arquivo "tsconfig.json" para o TypeScript -- C:\nlw\backend\tsconfig.json
+# E alterar a versáo do ECMAScript -> "target": "es2017"
+$ yarn tsc --init
+
+# Módulo que permite executar o projeto com TypeScript e Node
+$ yarn add ts-node-dev -D
+
+# É possível criar um script de "atalho" para executar o ts-node-dev, dentro de "package.json" 
+	"scripts": {
+		"dev": "ts-node-dev --transpile-only --ignore-watch node_modules src/server.ts"--transpile-only --ignore-watch node_modules
+	  }
+
+  --transpile-only .................: Só converter o código, não verificar erros de compilação pq eles são visualizados no vscode ... não precisar verificar novamente
+  --ignore-watch node_modules ......: Náo observar alterações no diretório node_modules, tornando mais rápido
+--------------------------------------------------------------------------------
+# Iniciar o servidor
+$ yarn dev
+--------------------------------------------------------------------------------
+# Banco de dados
+# Adicionar Type ORM e uma extensão para integração do sqlite com o Node
+$ yarn add typeorm sqlite3
+
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------

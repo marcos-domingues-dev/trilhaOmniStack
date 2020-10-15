@@ -1,0 +1,47 @@
+
+
+// ----------------------------------------
+// ROTAS
+// ----------------------------------------
+// Recurso: usuários
+// Métodos: GET, PUT, POST, DELETE
+// Parâmetros:
+// ----------------------------------------
+
+// ----------------------------------------
+// MÉTODOS
+// ----------------------------------------
+// 
+// GET    - Buscar informação
+// POST   - Criar informação
+// PUT    - Alterar/Atualizar informação
+// DELETE - Excluir informação
+// ----------------------------------------
+
+// ----------------------------------------
+// PAR METROS
+// ----------------------------------------
+// 
+// Query params: http://localhost:3333/users?search=marcos
+// - console.log(request.query);
+// - $ { search: 'marcos' }
+//
+// Route params: http://localhost:3333/users/1  -> (Utilizado para identificar um recurso)
+// - console.log(request.params);
+// - $ { id: '125' }
+// ----------------------------------------
+
+// ----------------------------------------
+// BODY
+// ----------------------------------------
+// Informações de um Formulário
+// Dados mais complexos
+// ----------------------------------------
+
+app.get('/users/:id', (request, response) => {
+  console.log(request.query);
+  console.log(request.params);
+  console.log(request.body);
+ 
+  return response.json({ message: 'Hello word 123'});
+});
