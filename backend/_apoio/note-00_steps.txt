@@ -38,14 +38,58 @@ $ yarn add ts-node-dev -D
 $ yarn dev
 --------------------------------------------------------------------------------
 # Banco de dados
+
 # Adicionar Type ORM e uma extensão para integração do sqlite com o Node
 $ yarn add typeorm sqlite3
 
+# Junto do TypeORM vem uma CLI
+
+# Para visualizar os comandos
+$ yarn typeorm
+
+# Por padrão o Type ORM roda com JavaScript.
+# Para instruir o Type ORM a utilizar TypeScript em vez de JavaScript - configurar um script em "package.json" :
+	  "scripts": {
+		"typeorm": "ts-node-dev ./node_modules/typeorm/cli.js"
+	  },
 --------------------------------------------------------------------------------
 
+# Configurando o Type ORM no file "ormconfig.json" - C:\nlw\backend\ormconfig.json
+
+{
+  "type": "sqlite",
+  "database": ".src/database/database.sqlite",
+  "migrations": [
+    "./src/database/migrations/*.ts"
+  ],
+  "cli": {
+    "migrationsDir": "./src/database/migrations"
+  }
+}
 --------------------------------------------------------------------------------
+# Database Migrations
+
+# Iniciar um arquivo para criar uma classe de migration ( C:\nlw\backend\src\database\migrations )
+$ yarn typeorm migration:create -n create_orphanages
+
+# Params:
+# 	* -n   =>   Nome (da migration)
+
+# Rodar as migrações
+$ yarn typeorm migration:run
+
+$ Para desfazer
+$ yarn typeorm migration:revert
 
 --------------------------------------------------------------------------------
+# Controllers
+
+# Padrões de Controller
+# index, show, create, update, delete
+--------------------------------------------------------------------------------
+# Biblioteca para lidar com arquivos/imagens
+$ yarn add multer
+$ yarn add @types/multer
 
 --------------------------------------------------------------------------------
 
