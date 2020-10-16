@@ -1,0 +1,120 @@
+
+================================================================================
+#day02
+
+# Criar aplicação do zero ( sem aquele arquétipo padrão )
+# Criando arquivo "package.json" -- C:\nlw\backend\package.json
+$ yarn init -y
+
+--------------------------------------------------------------------------------
+
+# Adicionando o express - Request/Response ( Ajuda a configurar rotas da aplicação )
+$ yarn add express
+
+# Adicionando os tipos no vscode
+$ yarn add @types/express
+
+--------------------------------------------------------------------------------
+# Por padrão o Node não compreende o TypeScript.
+# Vamos instalar o TypeScript como dependência de desenv
+$ yarn add typescript -D
+
+# Criar o arquivo "tsconfig.json" para o TypeScript -- C:\nlw\backend\tsconfig.json
+# E alterar a versáo do ECMAScript -> "target": "es2017"
+$ yarn tsc --init
+
+# Módulo que permite executar o projeto com TypeScript e Node
+$ yarn add ts-node-dev -D
+
+# É possível criar um script de "atalho" para executar o ts-node-dev, dentro de "package.json" 
+	"scripts": {
+		"dev": "ts-node-dev --transpile-only --ignore-watch node_modules src/server.ts"--transpile-only --ignore-watch node_modules
+	  }
+
+  --transpile-only .................: Só converter o código, não verificar erros de compilação pq eles são visualizados no vscode ... não precisar verificar novamente
+  --ignore-watch node_modules ......: Náo observar alterações no diretório node_modules, tornando mais rápido
+--------------------------------------------------------------------------------
+# Iniciar o servidor
+$ yarn dev
+--------------------------------------------------------------------------------
+# Banco de dados
+
+# Adicionar Type ORM e uma extensão para integração do sqlite com o Node
+$ yarn add typeorm sqlite3
+
+# Junto do TypeORM vem uma CLI
+
+# Para visualizar os comandos
+$ yarn typeorm
+
+# Por padrão o Type ORM roda com JavaScript.
+# Para instruir o Type ORM a utilizar TypeScript em vez de JavaScript - configurar um script em "package.json" :
+	  "scripts": {
+		"typeorm": "ts-node-dev ./node_modules/typeorm/cli.js"
+	  },
+--------------------------------------------------------------------------------
+
+# Configurando o Type ORM no file "ormconfig.json" - C:\nlw\backend\ormconfig.json
+
+{
+  "type": "sqlite",
+  "database": ".src/database/database.sqlite",
+  "migrations": [
+    "./src/database/migrations/*.ts"
+  ],
+  "cli": {
+    "migrationsDir": "./src/database/migrations"
+  }
+}
+--------------------------------------------------------------------------------
+# Database Migrations
+
+# Iniciar um arquivo para criar uma classe de migration ( C:\nlw\backend\src\database\migrations )
+$ yarn typeorm migration:create -n create_orphanages
+
+# Params:
+# 	* -n   =>   Nome (da migration)
+
+# Rodar as migrações
+$ yarn typeorm migration:run
+
+$ Para desfazer
+$ yarn typeorm migration:revert
+
+--------------------------------------------------------------------------------
+# Controllers
+
+# Padrões de Controller
+# index, show, create, update, delete
+--------------------------------------------------------------------------------
+# Biblioteca Multer para lidar com arquivos/imagens
+$ yarn add multer
+$ yarn add @types/multer
+
+# Arquivo de config
+C:\nlw\backend\src\config\upload.ts
+
+--------------------------------------------------------------------------------
+# Exceções
+$ yarn add express-async-errors
+
+--------------------------------------------------------------------------------
+# Validações
+$ yarn add yup
+$ yarn add @types/yup
+
+--------------------------------------------------------------------------------
+# Habilitar o Node trabalhar com outros domínios
+# Proteção para outras aplicações fazerem requisições se não estiverem no mesmo domínio
+$ yarn add cors
+$ yarn add @types/cors
+
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
