@@ -1,0 +1,77 @@
+
+================================================================================
+#day01 - links
+https://www.youtube.com/watch?v=JL-__ngSTcA
+
+https://www.notion.so/Configurando-o-ambiente-953aad022cda4fbcb149be2bfe793995
+https://www.notion.so/Instala-o-das-ferramentas-9eee9e25550e4477b3d0b432b605aca2
+
+# Instalar fonte (windows > Botão direito > Install)
+https://www.jetbrains.com/lp/mono/
+
+--------------------------------------------------------------------------------
+# Executar - No "Windows PowerShell - como administrador" 
+# Verificar política de segurança
+$ Get-ExecutionPolicy
+
+# Se aparecer "Restricted", rodar o comando abaixo:
+$ Set-ExecutionPolicy RemoteSigned
+
+# Instalar o Chocolatey - No "Windows PowerShell - como administrador" 
+$ Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
+
+# Instalar a versão LTS mais recente do Node - No "Windows PowerShell - como administrador" 
+$ cinst nodejs-lts
+
+# Versão do Node
+$ node -v
+
+# Versão do "Node Package Manager" (NPM)
+$ npm -v
+
+# Para instalar o Yarn 1 - No "Windows PowerShell - como administrador" 
+$ cinst yarn
+
+# Versão do yarn
+$ yarn --version
+
+--------------------------------------------------------------------------------
+# Criar nova aplicação react
+$ yarn create react-app web --template typescript
+
+# Rodar app
+$ yarn start
+
+--------------------------------------------------------------------------------
+# Instalar biblioteca de ícones
+$ yarn add react-icons
+
+--------------------------------------------------------------------------------
+# Instalar biblioteca de roteamento
+# https://reactrouter.com/web/guides/quick-start
+
+$ yarn add react-router-dom
+
+# Para auto-complete, instalar o pacote ( -D  dependência de desenvolvimento ) :
+$ yarn add @types/react-router-dom -D
+
+--------------------------------------------------------------------------------
+# Configurar tabs
+https://stackoverflow.com/questions/49167053/vs-code-keeps-setting-indentation-back-to-2-spaces-instead-of-4
+Go to: settings > workspace settings > Text editor
+uncheck 'Detect Indentation' to stick to your default setting.
+
+--------------------------------------------------------------------------------
+# Instalar Mapa react-leaflet
+$ yarn add leaflet react-leaflet
+$ yarn add @types/react-leaflet -D
+
+https://www.mapbox.com/
+marcosdomingues
+mdomingues.ti@gmail.com
+
+
+	Verificação no grupo Discord ( Vinícius Fraga #4555 ):
+	https://discordapp.com/channels/747891188492664934/747891188941717654/765298151828488242
+	
+--------------------------------------------------------------------------------
