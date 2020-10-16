@@ -87,9 +87,12 @@ $ yarn typeorm migration:revert
 # Padrões de Controller
 # index, show, create, update, delete
 --------------------------------------------------------------------------------
-# Biblioteca para lidar com arquivos/imagens
+# Biblioteca Multer para lidar com arquivos/imagens
 $ yarn add multer
 $ yarn add @types/multer
+
+# Arquivo de config
+C:\nlw\backend\src\config\upload.ts
 
 --------------------------------------------------------------------------------
 
