@@ -1,4 +1,4 @@
-import React, { FormEvent, useState } from "react";
+import React, { ChangeEvent, FormEvent, useState } from "react";
 import { Map, Marker, TileLayer } from 'react-leaflet';
 import { LeafletMouseEvent } from 'leaflet';
 import { FiPlus } from "react-icons/fi";
@@ -28,11 +28,25 @@ export default function CreateOrphanage() {
     });
   }
 
+  function hanleSelectImages(event: ChangeEvent<HTMLInputElement>) {
+    if (!event.target.files) {
+      return;
+    }
+
+    const selectedImages = Array.from(event.target.files);
+    setImages(selectedImages);
+
+    const selectedImagesPreview = selectedImages.map(img => {
+      return URL.createObjectURL(img);
+    });
+
+    setPreviewImages(selectedImagesPreview);
+  }
+
   function hadleSubmit(event: FormEvent) {
     event.preventDefault(); // -> Impede o "Enter" fazer refresh e apagar dados do form
 
     const {latitude, longitude} = position;
-
   }
 
   return (
@@ -90,13 +104,19 @@ export default function CreateOrphanage() {
             <div className="input-block">
               <label htmlFor="images">Fotos</label>
 
-              <div className="uploaded-image">
-
+              <div className="images-container">
+                {previewImages.map(image => {
+                  return (
+                    <img key={image} src={image} alt={name} />
+                  )
+                })}
+                <label htmlFor="image[]" className="new-image">
+                  <FiPlus size={24} color="#15b6d6" />
+                </label>
               </div>
 
-              <button type="button" className="new-image">
-                <FiPlus size={24} color="#15b6d6" />
-              </button>
+              <input multiple onChange={hanleSelectImages} type="file" name="" id="image[]"/>
+
             </div>
           </fieldset>
 
