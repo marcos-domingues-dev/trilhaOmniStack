@@ -58,7 +58,7 @@ export default {
       about,
       instructions,
       opening_hours,
-      open_on_weekends,
+      open_on_weekends: open_on_weekends == 'true',
       images
     }
 
@@ -69,13 +69,15 @@ export default {
       about: Yup.string().required('Sobre obrigatório').max(300, 'Sobre: no máximo 300 caracteres'),
       instructions: Yup.string().required('Instruções são obrigatórias'),
       opening_hours: Yup.string().required('Horário obrigatório'),
-      open_on_weekends: Yup.string().required('Aberto aos fins de semana obrigatório'),
+      open_on_weekends: Yup.boolean().required('Aberto aos fins de semana obrigatório'),
       images: Yup.array(
         Yup.object().shape({
           path: Yup.string().required()
         })
       )
     });
+
+    const finalData = schema.cast()
 
     await schema.validate(data, {
       abortEarly: false, // retornar todos erros ao mesmo tempo
