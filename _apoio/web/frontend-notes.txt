@@ -82,6 +82,13 @@ mdomingues.ti@gmail.com
 # Axios para definir baseurl
 $ yarn add axios
 
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 
+# Listando Orfanatos
+
+# Hooks - Dispara uma função quando o componente for renderizado
+# Criar um useEffect() sempre que for fazer uma chamada a api (backend)
 
 --------------------------------------------------------------------------------
